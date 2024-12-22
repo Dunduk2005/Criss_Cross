@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Criss_Cross: Исходный файл Criss_cross.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Criss_Cross<span id="projectnumber">&#160;1</span>
+   </div>
+   <div id="projectbrief">Программа для создания решетки кроссворда</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Criss_cross.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_criss__cross_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="_criss__cross_8h.html#af08ec37a8c99d747fb60fa15bc28678b">   10</a></span><span class="preprocessor">#define _CRT_SECURE_NO_WARNINGS </span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;vector&gt;</span>   </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;locale&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;codecvt&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;fstream&gt;</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;regex&gt;</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;Windows.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_word.html">   27</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_word.html">Word</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_word.html#abd34a3224770d9e0d4793d54e4d98818">   32</a></span>    std::wstring <a class="code hl_variable" href="struct_word.html#abd34a3224770d9e0d4793d54e4d98818">value</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_word.html#a526499a9da450bf842fb3a3b1646e3ab">   37</a></span>    std::vector&lt;int&gt; <a class="code hl_variable" href="struct_word.html#a526499a9da450bf842fb3a3b1646e3ab">occupied_letters</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct_word.html#a9a00479e18423f89f7d2d80f5e37086e">   42</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_word.html#a9a00479e18423f89f7d2d80f5e37086e">location</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_word.html#a6be066595c5020041cb7817863559666">   47</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_word.html#a6be066595c5020041cb7817863559666">start_x</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="struct_word.html#a21b50ddbbc3d8c11d1b2020f4c75783a">   52</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_word.html#a21b50ddbbc3d8c11d1b2020f4c75783a">start_y</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_criss___cross.html">   60</a></span><span class="keyword">class </span><a class="code hl_class" href="class_criss___cross.html">Criss_Cross</a> {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_criss___cross.html#abf71e1994dbf83030b3417c4f5d62689">   66</a></span>    std::vector&lt;std::vector&lt;wchar_t&gt;&gt; <a class="code hl_variable" href="class_criss___cross.html#abf71e1994dbf83030b3417c4f5d62689">grid</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_criss___cross.html#a49942d9f08db41eee91ab8770ec80833">   71</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_criss___cross.html#a49942d9f08db41eee91ab8770ec80833">size_grid</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_criss___cross.html#ad8661d8a7e2aa2219d6eb06b4b8c83b3">   76</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_criss___cross.html#ad8661d8a7e2aa2219d6eb06b4b8c83b3">size_big_word</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="class_criss___cross.html#a4754478bd63d12fb48b573d811849543">   81</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_criss___cross.html#a4754478bd63d12fb48b573d811849543">count_words</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="class_criss___cross.html#aeef7695d6920b03bb54382499cec1ead">   86</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_criss___cross.html#aeef7695d6920b03bb54382499cec1ead">count_insert_words</a>; </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_criss___cross.html#ac07bd5d68316b97e301b6160de6b7b08">   91</a></span>    std::wfstream <a class="code hl_variable" href="class_criss___cross.html#ac07bd5d68316b97e301b6160de6b7b08">In</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="class_criss___cross.html#a4e3863d5c3c8a838a47e22ce255b3792">   96</a></span>    std::wofstream <a class="code hl_variable" href="class_criss___cross.html#a4e3863d5c3c8a838a47e22ce255b3792">Out</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="class_criss___cross.html#a59d9000b7b64f6653d14052f45d9eaf3">  101</a></span>    std::vector&lt;struct Word&gt; <a class="code hl_variable" href="class_criss___cross.html#a59d9000b7b64f6653d14052f45d9eaf3">words</a>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_criss___cross.html#aa2f5da4736cb1165d6356fc417f34fbb">  106</a></span>    std::vector&lt;struct Word&gt; <a class="code hl_variable" href="class_criss___cross.html#aa2f5da4736cb1165d6356fc417f34fbb">words_2</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="class_criss___cross.html#a2354222af0f4c57d75c0fef05afc5b53">  111</a></span>    std::vector&lt;std::wstring&gt; <a class="code hl_variable" href="class_criss___cross.html#a2354222af0f4c57d75c0fef05afc5b53">invalidWords</a>;  </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#a3157f8359aeccdac9cf416cc7948029b">Check_Words</a>(std::vector&lt;std::wstring&gt;&amp; buffer);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_criss___cross.html#a66e6dd1512e61a9631079aaf22664e6c">Count_number_words</a>();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#a7e8db28dc476b930ce5ab6adaabdfb80">Input_file</a>();</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#a4bd725d68a802ea6157a1027644de755">Output_file</a>();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_criss___cross.html#a6360e3a6ed79864a0cf7d652b8f67c37">check</a>(<span class="keyword">const</span> std::string&amp; filename);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_criss___cross.html#acbb0423f6d1d432b1f947b0d160e2b28">Find_First_Intersection</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a> w1, <span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a> w2, <span class="keywordtype">int</span>&amp; a, <span class="keywordtype">int</span>&amp; b);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_criss___cross.html#a511ba622f09778d73c11fc0fd517180e">Can_Place_Word</a>(<span class="keyword">const</span> std::wstring&amp; word, <span class="keywordtype">int</span> StartX, <span class="keywordtype">int</span> StartY, <span class="keywordtype">int</span> direction);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#ab67aad64c5ca8ac5323fbaa4238574a3">Mark_Occupied_Letters</a>(<a class="code hl_struct" href="struct_word.html">Word</a>&amp; w1, <a class="code hl_struct" href="struct_word.html">Word</a>&amp; w2, <span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#af1cb8bce0371ea9a748c95264ff0e133">Insert_Word</a>(<a class="code hl_struct" href="struct_word.html">Word</a>&amp; w1, <a class="code hl_struct" href="struct_word.html">Word</a>&amp; w2, <span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b, <span class="keywordtype">int</span> d);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#a50561b8cbbb730d94f2ee1be30a7e201">Insert_First_Word</a>(std::vector&lt;struct Word&gt;&amp; w);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#ad24a214cbab148e59ebbd2987a3f37a3">Print</a>(<span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right, <span class="keywordtype">int</span> top, <span class="keywordtype">int</span> bottom);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#a7ba976216d3ce2f9e6d5456539ecca04">Defining_Boundaries</a>(<span class="keywordtype">int</span>&amp; left, <span class="keywordtype">int</span>&amp; right, <span class="keywordtype">int</span>&amp; top, <span class="keywordtype">int</span>&amp; bottom);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#acf8917ec4a1533226fc6355350cee1b4">Grill_Replacement</a>();</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#a98674fc421844875507787befe11f8bb">Invalid_words</a>(std::vector&lt;struct Word&gt; w); </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">//Доп</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#a0b8cf0cc8b67cbccd62f5f02d8156047">Make_Visualization</a>();</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#a06c74912f7ebdb4344e22d426fe372e7">Calculate_Percentage</a>(<span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right, <span class="keywordtype">int</span> top, <span class="keywordtype">int</span> bottom);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_criss___cross.html#aefa8c0612f289233198795aaff084b96">Find_Centre_Intersection_left</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a> w1, <span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a> w2, <span class="keywordtype">int</span>&amp; a, <span class="keywordtype">int</span>&amp; b, <span class="keywordtype">int</span> p);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_criss___cross.html#af934b3b80c864238099afb6e55b0421d">Find_Centre_Intersection_right</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a> w1, <span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a> w2, <span class="keywordtype">int</span>&amp; a, <span class="keywordtype">int</span>&amp; b, <span class="keywordtype">int</span> p);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#ab1bdf9e322e7f1765bb60dad8239ade0">Make_Criss_Cross_2</a>();</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="foldopen" id="foldopen00305" data-start="{" data-end="}">
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno"><a class="line" href="class_criss___cross.html#a011dc230ee445f3d0492e2f4eb040faf">  305</a></span>    <a class="code hl_function" href="class_criss___cross.html#a011dc230ee445f3d0492e2f4eb040faf">Criss_Cross</a>(<span class="keyword">const</span> std::string&amp; filename_in, <span class="keyword">const</span> std::string&amp; filename_out) {</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_criss___cross.html#a6360e3a6ed79864a0cf7d652b8f67c37">check</a>(filename_in) == <span class="keyword">true</span>) {</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>            <a class="code hl_variable" href="class_criss___cross.html#ac07bd5d68316b97e301b6160de6b7b08">In</a>.open(filename_in);</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>            <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_criss___cross.html#ac07bd5d68316b97e301b6160de6b7b08">In</a>) {</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>                std::wcerr &lt;&lt; L<span class="stringliteral">&quot;Ошибка открытия файла&quot;</span>;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            }</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>                <a class="code hl_variable" href="class_criss___cross.html#a4e3863d5c3c8a838a47e22ce255b3792">Out</a>.open(filename_out);</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>                <span class="keywordflow">if</span> (<a class="code hl_function" href="class_criss___cross.html#a66e6dd1512e61a9631079aaf22664e6c">Count_number_words</a>() == <span class="keyword">false</span>) {</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>                    std::wcerr &lt;&lt; L<span class="stringliteral">&quot;Ошибка: Файл пуст! Заполните файл&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>                }</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>                <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>                    <a class="code hl_function" href="class_criss___cross.html#a7e8db28dc476b930ce5ab6adaabdfb80">Input_file</a>();</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>                    std::sort(<a class="code hl_variable" href="class_criss___cross.html#a59d9000b7b64f6653d14052f45d9eaf3">words</a>.begin(), <a class="code hl_variable" href="class_criss___cross.html#a59d9000b7b64f6653d14052f45d9eaf3">words</a>.end(), [](<span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a>&amp; a, <span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a>&amp; b) {</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>                        return a.value.size() &gt; b.value.size();</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>                        });</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>                    std::sort(<a class="code hl_variable" href="class_criss___cross.html#aa2f5da4736cb1165d6356fc417f34fbb">words_2</a>.begin(), <a class="code hl_variable" href="class_criss___cross.html#aa2f5da4736cb1165d6356fc417f34fbb">words_2</a>.end(), [](<span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a>&amp; a, <span class="keyword">const</span> <a class="code hl_struct" href="struct_word.html">Word</a>&amp; b) {</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>                        return a.value.size() &gt; b.value.size();</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>                        });</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>                    <a class="code hl_variable" href="class_criss___cross.html#ad8661d8a7e2aa2219d6eb06b4b8c83b3">size_big_word</a> = <a class="code hl_variable" href="class_criss___cross.html#a59d9000b7b64f6653d14052f45d9eaf3">words</a>[0].value.size();</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>                    <a class="code hl_variable" href="class_criss___cross.html#a49942d9f08db41eee91ab8770ec80833">size_grid</a> = <a class="code hl_variable" href="class_criss___cross.html#ad8661d8a7e2aa2219d6eb06b4b8c83b3">size_big_word</a> * <a class="code hl_variable" href="class_criss___cross.html#ad8661d8a7e2aa2219d6eb06b4b8c83b3">size_big_word</a>;</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>                    <a class="code hl_variable" href="class_criss___cross.html#abf71e1994dbf83030b3417c4f5d62689">grid</a>.resize(<a class="code hl_variable" href="class_criss___cross.html#a49942d9f08db41eee91ab8770ec80833">size_grid</a>, std::vector&lt;wchar_t&gt;(<a class="code hl_variable" href="class_criss___cross.html#a49942d9f08db41eee91ab8770ec80833">size_grid</a>, L<span class="charliteral">&#39; &#39;</span>));</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>                }</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>            }</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        }</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>            std::wcerr &lt;&lt; L<span class="stringliteral">&quot;Ошибка: название файла некорректно&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        }</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    }</div>
+</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
+<div class="foldopen" id="foldopen00341" data-start="{" data-end="}">
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno"><a class="line" href="class_criss___cross.html#aa560f69d10e7a5c956bb06065beeaf1f">  341</a></span>    <a class="code hl_function" href="class_criss___cross.html#aa560f69d10e7a5c956bb06065beeaf1f">~Criss_Cross</a>() {</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <a class="code hl_variable" href="class_criss___cross.html#ac07bd5d68316b97e301b6160de6b7b08">In</a>.close();</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        <a class="code hl_variable" href="class_criss___cross.html#a4e3863d5c3c8a838a47e22ce255b3792">Out</a>.close();</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    }</div>
+</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_criss___cross.html#abdcdf7a4728d9bdb92b5ce9b3d3905bb">Make_Criss_Cross</a>();</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>};</div>
+</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
+<div class="ttc" id="aclass_criss___cross_html"><div class="ttname"><a href="class_criss___cross.html">Criss_Cross</a></div><div class="ttdoc">Представляет собой решетку кроссворда.</div><div class="ttdef"><b>Definition</b> Criss_cross.h:60</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a011dc230ee445f3d0492e2f4eb040faf"><div class="ttname"><a href="class_criss___cross.html#a011dc230ee445f3d0492e2f4eb040faf">Criss_Cross::Criss_Cross</a></div><div class="ttdeci">Criss_Cross(const std::string &amp;filename_in, const std::string &amp;filename_out)</div><div class="ttdoc">Конструктор.</div><div class="ttdef"><b>Definition</b> Criss_cross.h:305</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a06c74912f7ebdb4344e22d426fe372e7"><div class="ttname"><a href="class_criss___cross.html#a06c74912f7ebdb4344e22d426fe372e7">Criss_Cross::Calculate_Percentage</a></div><div class="ttdeci">void Calculate_Percentage(int left, int right, int top, int bottom)</div><div class="ttdoc">Считает процент букв в решетке.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:405</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a0b8cf0cc8b67cbccd62f5f02d8156047"><div class="ttname"><a href="class_criss___cross.html#a0b8cf0cc8b67cbccd62f5f02d8156047">Criss_Cross::Make_Visualization</a></div><div class="ttdeci">void Make_Visualization()</div><div class="ttdoc">Генерирует визуализацию кроссворда.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:474</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a2354222af0f4c57d75c0fef05afc5b53"><div class="ttname"><a href="class_criss___cross.html#a2354222af0f4c57d75c0fef05afc5b53">Criss_Cross::invalidWords</a></div><div class="ttdeci">std::vector&lt; std::wstring &gt; invalidWords</div><div class="ttdoc">Вектор слов, не вошедших в решетку</div><div class="ttdef"><b>Definition</b> Criss_cross.h:111</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a3157f8359aeccdac9cf416cc7948029b"><div class="ttname"><a href="class_criss___cross.html#a3157f8359aeccdac9cf416cc7948029b">Criss_Cross::Check_Words</a></div><div class="ttdeci">void Check_Words(std::vector&lt; std::wstring &gt; &amp;buffer)</div><div class="ttdoc">Проверяет слова из входного файла.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:39</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a4754478bd63d12fb48b573d811849543"><div class="ttname"><a href="class_criss___cross.html#a4754478bd63d12fb48b573d811849543">Criss_Cross::count_words</a></div><div class="ttdeci">size_t count_words</div><div class="ttdoc">Количество слов</div><div class="ttdef"><b>Definition</b> Criss_cross.h:81</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a49942d9f08db41eee91ab8770ec80833"><div class="ttname"><a href="class_criss___cross.html#a49942d9f08db41eee91ab8770ec80833">Criss_Cross::size_grid</a></div><div class="ttdeci">size_t size_grid</div><div class="ttdoc">Размер решетки</div><div class="ttdef"><b>Definition</b> Criss_cross.h:71</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a4bd725d68a802ea6157a1027644de755"><div class="ttname"><a href="class_criss___cross.html#a4bd725d68a802ea6157a1027644de755">Criss_Cross::Output_file</a></div><div class="ttdeci">void Output_file()</div><div class="ttdoc">Записывает решетку кроссворда в файл.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:142</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a4e3863d5c3c8a838a47e22ce255b3792"><div class="ttname"><a href="class_criss___cross.html#a4e3863d5c3c8a838a47e22ce255b3792">Criss_Cross::Out</a></div><div class="ttdeci">std::wofstream Out</div><div class="ttdoc">Название выходного файла</div><div class="ttdef"><b>Definition</b> Criss_cross.h:96</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a50561b8cbbb730d94f2ee1be30a7e201"><div class="ttname"><a href="class_criss___cross.html#a50561b8cbbb730d94f2ee1be30a7e201">Criss_Cross::Insert_First_Word</a></div><div class="ttdeci">void Insert_First_Word(std::vector&lt; struct Word &gt; &amp;w)</div><div class="ttdoc">Вставляет первое слово в решетку.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:336</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a511ba622f09778d73c11fc0fd517180e"><div class="ttname"><a href="class_criss___cross.html#a511ba622f09778d73c11fc0fd517180e">Criss_Cross::Can_Place_Word</a></div><div class="ttdeci">bool Can_Place_Word(const std::wstring &amp;word, int StartX, int StartY, int direction)</div><div class="ttdoc">Прверяет, может ли слово распологаться в решетке.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:221</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a59d9000b7b64f6653d14052f45d9eaf3"><div class="ttname"><a href="class_criss___cross.html#a59d9000b7b64f6653d14052f45d9eaf3">Criss_Cross::words</a></div><div class="ttdeci">std::vector&lt; struct Word &gt; words</div><div class="ttdoc">Двумерный вектор слов</div><div class="ttdef"><b>Definition</b> Criss_cross.h:101</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a6360e3a6ed79864a0cf7d652b8f67c37"><div class="ttname"><a href="class_criss___cross.html#a6360e3a6ed79864a0cf7d652b8f67c37">Criss_Cross::check</a></div><div class="ttdeci">bool check(const std::string &amp;filename)</div><div class="ttdoc">Проверяет имя файла на правильность.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:176</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a66e6dd1512e61a9631079aaf22664e6c"><div class="ttname"><a href="class_criss___cross.html#a66e6dd1512e61a9631079aaf22664e6c">Criss_Cross::Count_number_words</a></div><div class="ttdeci">bool Count_number_words()</div><div class="ttdoc">Считает количество слов в файл.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:18</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a7ba976216d3ce2f9e6d5456539ecca04"><div class="ttname"><a href="class_criss___cross.html#a7ba976216d3ce2f9e6d5456539ecca04">Criss_Cross::Defining_Boundaries</a></div><div class="ttdeci">void Defining_Boundaries(int &amp;left, int &amp;right, int &amp;top, int &amp;bottom)</div><div class="ttdoc">Определяет границы решетки.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:433</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a7e8db28dc476b930ce5ab6adaabdfb80"><div class="ttname"><a href="class_criss___cross.html#a7e8db28dc476b930ce5ab6adaabdfb80">Criss_Cross::Input_file</a></div><div class="ttdeci">void Input_file()</div><div class="ttdoc">Читает слова из файла.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:88</div></div>
+<div class="ttc" id="aclass_criss___cross_html_a98674fc421844875507787befe11f8bb"><div class="ttname"><a href="class_criss___cross.html#a98674fc421844875507787befe11f8bb">Criss_Cross::Invalid_words</a></div><div class="ttdeci">void Invalid_words(std::vector&lt; struct Word &gt; w)</div><div class="ttdoc">Выводит в консоль слова, которые не вошли в решетку.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:357</div></div>
+<div class="ttc" id="aclass_criss___cross_html_aa2f5da4736cb1165d6356fc417f34fbb"><div class="ttname"><a href="class_criss___cross.html#aa2f5da4736cb1165d6356fc417f34fbb">Criss_Cross::words_2</a></div><div class="ttdeci">std::vector&lt; struct Word &gt; words_2</div><div class="ttdoc">Двумерный вектор слов_2.</div><div class="ttdef"><b>Definition</b> Criss_cross.h:106</div></div>
+<div class="ttc" id="aclass_criss___cross_html_aa560f69d10e7a5c956bb06065beeaf1f"><div class="ttname"><a href="class_criss___cross.html#aa560f69d10e7a5c956bb06065beeaf1f">Criss_Cross::~Criss_Cross</a></div><div class="ttdeci">~Criss_Cross()</div><div class="ttdoc">Деструктор.</div><div class="ttdef"><b>Definition</b> Criss_cross.h:341</div></div>
+<div class="ttc" id="aclass_criss___cross_html_ab1bdf9e322e7f1765bb60dad8239ade0"><div class="ttname"><a href="class_criss___cross.html#ab1bdf9e322e7f1765bb60dad8239ade0">Criss_Cross::Make_Criss_Cross_2</a></div><div class="ttdeci">void Make_Criss_Cross_2()</div><div class="ttdoc">Генерирует решетку кроссворда вторым методом.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:548</div></div>
+<div class="ttc" id="aclass_criss___cross_html_ab67aad64c5ca8ac5323fbaa4238574a3"><div class="ttname"><a href="class_criss___cross.html#ab67aad64c5ca8ac5323fbaa4238574a3">Criss_Cross::Mark_Occupied_Letters</a></div><div class="ttdeci">void Mark_Occupied_Letters(Word &amp;w1, Word &amp;w2, int a, int b)</div><div class="ttdoc">Помечает занятые буквы в вслове.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:278</div></div>
+<div class="ttc" id="aclass_criss___cross_html_abdcdf7a4728d9bdb92b5ce9b3d3905bb"><div class="ttname"><a href="class_criss___cross.html#abdcdf7a4728d9bdb92b5ce9b3d3905bb">Criss_Cross::Make_Criss_Cross</a></div><div class="ttdeci">void Make_Criss_Cross()</div><div class="ttdoc">Генирирует решетку кроссворда.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:371</div></div>
+<div class="ttc" id="aclass_criss___cross_html_abf71e1994dbf83030b3417c4f5d62689"><div class="ttname"><a href="class_criss___cross.html#abf71e1994dbf83030b3417c4f5d62689">Criss_Cross::grid</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; wchar_t &gt; &gt; grid</div><div class="ttdef"><b>Definition</b> Criss_cross.h:66</div></div>
+<div class="ttc" id="aclass_criss___cross_html_ac07bd5d68316b97e301b6160de6b7b08"><div class="ttname"><a href="class_criss___cross.html#ac07bd5d68316b97e301b6160de6b7b08">Criss_Cross::In</a></div><div class="ttdeci">std::wfstream In</div><div class="ttdoc">Название входного файла</div><div class="ttdef"><b>Definition</b> Criss_cross.h:91</div></div>
+<div class="ttc" id="aclass_criss___cross_html_acbb0423f6d1d432b1f947b0d160e2b28"><div class="ttname"><a href="class_criss___cross.html#acbb0423f6d1d432b1f947b0d160e2b28">Criss_Cross::Find_First_Intersection</a></div><div class="ttdeci">bool Find_First_Intersection(const Word w1, const Word w2, int &amp;a, int &amp;b)</div><div class="ttdoc">Находит первую общую букву у двух слов, начиная с начала слова.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:191</div></div>
+<div class="ttc" id="aclass_criss___cross_html_acf8917ec4a1533226fc6355350cee1b4"><div class="ttname"><a href="class_criss___cross.html#acf8917ec4a1533226fc6355350cee1b4">Criss_Cross::Grill_Replacement</a></div><div class="ttdeci">void Grill_Replacement()</div><div class="ttdoc">Удаляет все '#' в решетке и заменяет на ' '.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:127</div></div>
+<div class="ttc" id="aclass_criss___cross_html_ad24a214cbab148e59ebbd2987a3f37a3"><div class="ttname"><a href="class_criss___cross.html#ad24a214cbab148e59ebbd2987a3f37a3">Criss_Cross::Print</a></div><div class="ttdeci">void Print(int left, int right, int top, int bottom)</div><div class="ttdoc">Печатает решетку кроссворда в консоль.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:460</div></div>
+<div class="ttc" id="aclass_criss___cross_html_ad8661d8a7e2aa2219d6eb06b4b8c83b3"><div class="ttname"><a href="class_criss___cross.html#ad8661d8a7e2aa2219d6eb06b4b8c83b3">Criss_Cross::size_big_word</a></div><div class="ttdeci">size_t size_big_word</div><div class="ttdoc">Длинна длинного слова</div><div class="ttdef"><b>Definition</b> Criss_cross.h:76</div></div>
+<div class="ttc" id="aclass_criss___cross_html_aeef7695d6920b03bb54382499cec1ead"><div class="ttname"><a href="class_criss___cross.html#aeef7695d6920b03bb54382499cec1ead">Criss_Cross::count_insert_words</a></div><div class="ttdeci">size_t count_insert_words</div><div class="ttdoc">Количество добавленных слов</div><div class="ttdef"><b>Definition</b> Criss_cross.h:86</div></div>
+<div class="ttc" id="aclass_criss___cross_html_aefa8c0612f289233198795aaff084b96"><div class="ttname"><a href="class_criss___cross.html#aefa8c0612f289233198795aaff084b96">Criss_Cross::Find_Centre_Intersection_left</a></div><div class="ttdeci">bool Find_Centre_Intersection_left(const Word w1, const Word w2, int &amp;a, int &amp;b, int p)</div><div class="ttdoc">Находит первую общую букву у двух слов, начиная с серидины слова и двигась влево.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:493</div></div>
+<div class="ttc" id="aclass_criss___cross_html_af1cb8bce0371ea9a748c95264ff0e133"><div class="ttname"><a href="class_criss___cross.html#af1cb8bce0371ea9a748c95264ff0e133">Criss_Cross::Insert_Word</a></div><div class="ttdeci">void Insert_Word(Word &amp;w1, Word &amp;w2, int a, int b, int d)</div><div class="ttdoc">Добавление слова в решетку.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:306</div></div>
+<div class="ttc" id="aclass_criss___cross_html_af934b3b80c864238099afb6e55b0421d"><div class="ttname"><a href="class_criss___cross.html#af934b3b80c864238099afb6e55b0421d">Criss_Cross::Find_Centre_Intersection_right</a></div><div class="ttdeci">bool Find_Centre_Intersection_right(const Word w1, const Word w2, int &amp;a, int &amp;b, int p)</div><div class="ttdoc">Находит первую общую букву у двух слов, начиная с серидины слова и двигась вправо.</div><div class="ttdef"><b>Definition</b> Criss_cross.cpp:524</div></div>
+<div class="ttc" id="astruct_word_html"><div class="ttname"><a href="struct_word.html">Word</a></div><div class="ttdoc">Представляет собой слово в кроссворде.</div><div class="ttdef"><b>Definition</b> Criss_cross.h:27</div></div>
+<div class="ttc" id="astruct_word_html_a21b50ddbbc3d8c11d1b2020f4c75783a"><div class="ttname"><a href="struct_word.html#a21b50ddbbc3d8c11d1b2020f4c75783a">Word::start_y</a></div><div class="ttdeci">int start_y</div><div class="ttdoc">Координата y начала слова в решетке</div><div class="ttdef"><b>Definition</b> Criss_cross.h:52</div></div>
+<div class="ttc" id="astruct_word_html_a526499a9da450bf842fb3a3b1646e3ab"><div class="ttname"><a href="struct_word.html#a526499a9da450bf842fb3a3b1646e3ab">Word::occupied_letters</a></div><div class="ttdeci">std::vector&lt; int &gt; occupied_letters</div><div class="ttdoc">Вектор для хранения занятых букв</div><div class="ttdef"><b>Definition</b> Criss_cross.h:37</div></div>
+<div class="ttc" id="astruct_word_html_a6be066595c5020041cb7817863559666"><div class="ttname"><a href="struct_word.html#a6be066595c5020041cb7817863559666">Word::start_x</a></div><div class="ttdeci">int start_x</div><div class="ttdoc">Координата x начала слова в решетке</div><div class="ttdef"><b>Definition</b> Criss_cross.h:47</div></div>
+<div class="ttc" id="astruct_word_html_a9a00479e18423f89f7d2d80f5e37086e"><div class="ttname"><a href="struct_word.html#a9a00479e18423f89f7d2d80f5e37086e">Word::location</a></div><div class="ttdeci">int location</div><div class="ttdoc">Хранит расположение слова (0 - гориз. 1 - верт.)</div><div class="ttdef"><b>Definition</b> Criss_cross.h:42</div></div>
+<div class="ttc" id="astruct_word_html_abd34a3224770d9e0d4793d54e4d98818"><div class="ttname"><a href="struct_word.html#abd34a3224770d9e0d4793d54e4d98818">Word::value</a></div><div class="ttdeci">std::wstring value</div><div class="ttdoc">Поле значение</div><div class="ttdef"><b>Definition</b> Criss_cross.h:32</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
